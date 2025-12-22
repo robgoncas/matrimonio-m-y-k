@@ -320,52 +320,60 @@
       }
     }
 
-    header, nav {
-  width: 100%;       /* que no exceda el viewport */
-  max-width: 100vw;  /* evita scroll horizontal */
-  overflow-x: hidden; /* corta cualquier sobrante */
-  box-sizing: border-box; /* incluye padding en el ancho */
-}
+    header,
+    nav {
+      width: 100%;
+      /* que no exceda el viewport */
+      max-width: 100vw;
+      /* evita scroll horizontal */
+      overflow-x: hidden;
+      /* corta cualquier sobrante */
+      box-sizing: border-box;
+      /* incluye padding en el ancho */
+    }
 
-.navbar-toggler-icon {
-  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='%23ad9364' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
-}
+    .navbar-toggler-icon {
+      background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='%23ad9364' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+    }
 
-.navbar-toggler {
-  border: 2px solid #ad9364; /* color del contorno */
-  border-radius: 0.5rem;      /* bordes redondeados */
-}
+    .navbar-toggler {
+      border: 2px solid #ad9364;
+      /* color del contorno */
+      border-radius: 0.5rem;
+      /* bordes redondeados */
+    }
 
-body {
-  overflow-x: hidden !important ;  /* evita scroll horizontal */
-}
+    body {
+      overflow-x: hidden !important;
+      /* evita scroll horizontal */
+    }
   </style>
 </head>
 
 <body>
-<header>
+  <header>
     <!-- Navbar -->
-  <nav class="navbar navbar-expand-lg fixed-top shadow-sm bg-azul">
-    <div class="container">
-      <a class="navbar-brand fuente-eyesome" href="#home">M & K</a>
-      <button class="navbar-toggler color-oro" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon color-oro"></span>
-      </button>
-      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-        <ul class="navbar-nav">
-          <li class="nav-item"><a class="nav-link color-oro fuente-paris" href="#home">Home</a></li>
-          <li class="nav-item"><a class="nav-link color-oro fuente-paris" href="#ceremonia">Ceremonia</a></li>
-          <li class="nav-item"><a class="nav-link color-oro fuente-paris" href="#como_llegar">Cómo Llegar</a></li>
-          <li class="nav-item"><a class="nav-link color-oro fuente-paris" href="#itinerario">Itinerario</a></li>
-          <li class="nav-item"><a class="nav-link color-oro fuente-paris" href="#dress_code">Dress Code</a></li>
-          <li class="nav-item"><a class="nav-link color-oro fuente-paris" href="#barra_libre">Barra Libre</a></li>
-          <li class="nav-item"><a class="nav-link color-oro fuente-paris" href="#regalos">Regalos</a></li>
-        </ul>
+    <nav class="navbar navbar-expand-lg fixed-top shadow-sm bg-azul">
+      <div class="container">
+        <a class="navbar-brand fuente-eyesome" href="#home">M & K</a>
+        <button class="navbar-toggler color-oro" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+          aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon color-oro"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item"><a class="nav-link color-oro fuente-paris" href="#home">Home</a></li>
+            <li class="nav-item"><a class="nav-link color-oro fuente-paris" href="#ceremonia">Ceremonia</a></li>
+            <li class="nav-item"><a class="nav-link color-oro fuente-paris" href="#como_llegar">Cómo Llegar</a></li>
+            <li class="nav-item"><a class="nav-link color-oro fuente-paris" href="#itinerario">Itinerario</a></li>
+            <li class="nav-item"><a class="nav-link color-oro fuente-paris" href="#dress_code">Dress Code</a></li>
+            <li class="nav-item"><a class="nav-link color-oro fuente-paris" href="#barra_libre">Barra Libre</a></li>
+            <li class="nav-item"><a class="nav-link color-oro fuente-paris" href="#regalos">Regalos</a></li>
+          </ul>
+        </div>
       </div>
-    </div>
-  </nav>
-</header>
+    </nav>
+  </header>
 
 
   <main class="">
@@ -566,7 +574,7 @@ body {
   <footer class="bg-fondo-boda">
     <p class="color-azul display-7">
       <strong> Gracias por ser parte de nuestra historia 💖<br>
-      Karem & Michel · 2026 · #KaremYMichel </strong>
+        Karem & Michel · 2026 · #KaremYMichel </strong>
     </p>
   </footer>
 
@@ -643,6 +651,19 @@ body {
       }
     }
     typeEffect();
+
+
+    // Selecciona todos los enlaces dentro de la navbar collapse
+    const navLinks = document.querySelectorAll('.navbar-collapse .nav-link');
+    const navCollapse = document.querySelector('.navbar-collapse');
+
+    navLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        // Bootstrap 5: usa la clase collapse y la instancia de Collapse
+        const bsCollapse = new bootstrap.Collapse(navCollapse, { toggle: false });
+        bsCollapse.hide();
+      });
+    });
   </script>
 </body>
 
