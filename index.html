@@ -5,6 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Michel & Karem</title>
+  <link rel="icon" href="/assets/img/STICKERS/sello.ico">
   <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
   <!-- AOS for animations -->
@@ -347,6 +348,31 @@
       overflow-x: hidden !important;
       /* evita scroll horizontal */
     }
+
+    #boton-cerrar {
+      position: fixed;
+      /* CLAVE */
+      top: 16px;
+      right: 16px;
+      z-index: 9999;
+      /* por encima de TODO */
+      width: 44px;
+      height: 44px;
+      pointer-events: auto;
+    }
+
+    .video-container {
+      width: 100%;
+      height: 100%;
+      position: relative;
+      z-index: 1;
+    }
+
+    .video-container iframe {
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
   </style>
 </head>
 
@@ -473,11 +499,11 @@
               class="section-img img-fluid img-itinerario">
           </div>
           <div class="col-12 col-md-4 text-center" data-aos="fade-left">
-            <p class="color-oro display-7"><strong>18:00:</strong> Recepción Villa la Toscana</p>
+            <p class="color-oro display-7"><strong>18:00:</strong> Recepción "Centro de Eventos Villa la Toscana"</p>
             <img src="./assets/img/en_el_altar.png" alt="Itinerary" class="section-img img-fluid img-itinerario">
           </div>
           <div class="col-12 col-md-4 text-center" data-aos="fade-left">
-            <p class="color-oro display-7"><strong>18:30:</strong> Brindis y Cocktail</p>
+            <p class="color-oro display-7"><strong>18:30:</strong> Brindis y Cóctel</p>
             <img src="./assets/img/posando.png" alt="Itinerary" class="section-img img-fluid img-itinerario">
           </div>
         </div>
@@ -512,14 +538,15 @@
                 una sonrisa a la altura del amor que se celebra!</p>
             </div>
           </div>
-          <div class="col-md-4 d-flex justify-content-center" data-aos="fade-right">
-            <img src="./assets/img/posando_casual.png" alt="Dress Code" class="section-img img-fluid w-80">
+          <div class="col-md-4 d-flex flex-column align-items-center text-center" data-aos="fade-right">
+            <img src="./assets/img/posando_casual.png" alt="Dress Code" class="section-img img-fluid w-80 mb-3">
+            <p class="color-oro"><strong>COLOR BLANCO Y DERIVADOS RESERVADOS PARA LOS NOVIOS.</strong></p>
           </div>
           <div class="col-md-4 d-flex justify-content-center align-items-center" data-aos="fade-right">
             <div style="max-width: 290px;">
-              <p class="color-oro display-7 text-center"><strong>Mujeres:</strong> Formal de noche; Vestido largo o
-                conjunto sofisticado. Colores intensos bienvenidos, pero deja el blanco y sus variaciones ... para la
-                novia!</p>
+              <p class="color-oro display-7 text-center"><strong>Mujeres:</strong> Formal. Vestido o conjunto
+                sofisticado. Colores, texturas y diseños que aporten armonía y alegría a la celebración son bienvenidos.
+              </p>
             </div>
           </div>
         </div>
@@ -556,14 +583,15 @@
           <div class="col-12 col-md-4" data-aos="fade-left">
             <img src="./assets/img/posando_obsequios.png" alt="Karem y Michel con el regalo" class="section-img">
           </div>
-          <div class="col-12 col-md-8" data-aos="fade-right">
+          <div class="col-12 col-md-8 flex-column d-flex justify-content-center align-items-center"
+            data-aos="fade-right">
             <p class="color-oro display-7 text-center">Agradecemos de corazón tu presencia en este día tan especial.</p>
-            <p class="color-oro display-7 text-center">Si deseas hacernos un obsequio, te invitamos a hacerlo mediante
-              transferencia bancaria.</p>
-            <p class="color-oro display-7 text-center">
-              Tu compañia es el mejor obsequio que podrías recibir. Pero si además quisieras acompañarnos en nuestra
-              nueva etapa, puedes hacerlo con un pequeño gesto a nuestro "fondo de sueños compartido".
-            </p>
+            <p class="color-oro display-7 text-center">Si deseas hacernos un obsequio, dejamos nuestros datos para
+              hacerlo posible.</p>
+            <button id="datos-regalos" class="btn bg-fondo-boda color-azul" data-bs-toggle="modal"
+              data-bs-target="#modalRegalos">
+              Datos para regalos
+            </button>
           </div>
         </div>
       </div>
@@ -592,12 +620,12 @@
   <div class="modal fade" id="videoModal" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog modal-fullscreen">
       <div class="modal-content bg-azul text-white border-0">
+        <!-- BOTÓN CERRAR -->
+        <button id="boton-cerrar" type="button" class="btn-close btn-close-white close-video" data-bs-dismiss="modal"
+          aria-label="Cerrar"></button>
 
         <div class="modal-body p-0 d-flex align-items-center justify-content-center position-relative">
 
-          <!-- BOTÓN CERRAR -->
-          <button type="button" class="btn-close btn-close-white close-video" data-bs-dismiss="modal"
-            aria-label="Cerrar"></button>
 
           <!-- CARGANDO -->
           <div id="loadingContent" class="text-center loading-wrapper">
@@ -607,33 +635,130 @@
 
           <!-- VIDEO -->
           <div id="videoContent" class="d-none video-container">
-            <iframe id="videoIframe" src="" allow="autoplay" allowfullscreen>
-            </iframe>
+            <div class="ratio ratio-16x9 w-100 h-100">
+              <iframe id="vimeoPlayer" src="https://player.vimeo.com/video/1148753515?badge=0&autopause=0"
+                frameborder="0" allow="autoplay; fullscreen; picture-in-picture"
+                referrerpolicy="strict-origin-when-cross-origin" title="MICHEL Y KAREM">
+              </iframe>
+            </div>
           </div>
+          <script src="https://player.vimeo.com/api/player.js"></script>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal fade" id="modalRegalos" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-sm">
+      <div class="modal-content text-center">
+
+        <div class="modal-header">
+          <h5 class="modal-title w-100">Datos para regalos</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+        </div>
+
+        <div class="modal-body">
+
+          <!-- DATOS (texto oculto para copiar) -->
+          <textarea id="datosBancarios" class="visually-hidden">
+Banco: Banco Ejemplo
+Tipo de cuenta: Cuenta Corriente
+Número de cuenta: 123456789
+Nombre: Juan Pérez
+Email: juanperez@email.com
+        </textarea>
+
+          <!-- MOSTRADO EN PANTALLA -->
+          <p><strong>Banco:</strong> Banco Ejemplo</p>
+          <p><strong>Tipo de cuenta:</strong> Cuenta Corriente</p>
+          <p><strong>N° de cuenta:</strong> 123456789</p>
+          <p><strong>Nombre:</strong> Juan Pérez</p>
+          <p><strong>Email:</strong> juanperez@email.com</p>
+
+          <!-- BOTÓN COPIAR -->
+          <button id="copiarDatos" class="btn bg-azul color-oro mt-3 w-100">
+            Copiar datos
+          </button>
+
+          <p id="copiadoMsg" class="text-success small mt-2 d-none">
+            Datos copiados, péguelos en su app del banco.
+          </p>
+
         </div>
       </div>
     </div>
   </div>
 
+  </div>
+
   <script>
+    document.getElementById("copiarDatos").addEventListener("click", function () {
+      const textarea = document.getElementById("datosBancarios");
+
+      textarea.classList.remove("visually-hidden");
+      textarea.select();
+      textarea.setSelectionRange(0, 99999); // mobile
+
+      document.execCommand("copy");
+
+      textarea.classList.add("visually-hidden");
+
+      document.getElementById("copiadoMsg").classList.remove("d-none");
+    });
+    window.vimeoPlayerInstance = new Vimeo.Player(
+      document.getElementById("vimeoPlayer")
+    );
+    document.getElementById("boton-cerrar").addEventListener("click", cerrarVideo);
+    document.getElementById("boton-cerrar").addEventListener("touchend", cerrarVideo);
+
+    function cerrarVideo(e) {
+      e.preventDefault();
+
+      const modalEl = document.getElementById("videoModal");
+      const modal = bootstrap.Modal.getOrCreateInstance(modalEl);
+      modal.hide();
+
+      // Pausar Vimeo
+      if (window.vimeoPlayerInstance) {
+        window.vimeoPlayerInstance.pause();
+      }
+    }
+
+    document.getElementById("boton-cerrar").addEventListener("touchend", function (e) {
+      e.preventDefault();
+
+      const modalEl = document.getElementById("videoModal");
+      const modal = bootstrap.Modal.getInstance(modalEl);
+      modal.hide();
+    });
+
+    document.addEventListener("DOMContentLoaded", function () {
+      const iframe = document.getElementById("vimeoPlayer");
+      const player = new Vimeo.Player(iframe);
+      const modal = document.getElementById("videoModal");
+
+      modal.addEventListener("hidden.bs.modal", function () {
+        player.pause();
+
+        document.activeElement.blur();
+
+        document.body.focus();
+      });
+    });
+
     window.addEventListener('load', () => {
       const modalEl = document.getElementById('videoModal');
       const modal = new bootstrap.Modal(modalEl);
       const loading = document.getElementById('loadingContent');
       const video = document.getElementById('videoContent');
-      const iframe = document.getElementById('videoIframe');
 
       modal.show();
 
       setTimeout(() => {
         loading.classList.add('d-none');
         video.classList.remove('d-none');
-
-        iframe.src = "https://drive.google.com/file/d/1BkzaFxGqR1bmaGYj4St9zedSKhe9ynMk/preview";
       }, 3000);
 
       modalEl.addEventListener('hidden.bs.modal', () => {
-        iframe.src = "";
         loading.classList.remove('d-none');
         video.classList.add('d-none');
       });
