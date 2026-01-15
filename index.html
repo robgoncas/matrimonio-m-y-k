@@ -373,10 +373,10 @@
       height: 100%;
       border: 0;
     }
-    .color-celeste{
-      color:lightblue !important;
-    }
 
+    .color-celeste {
+      color: lightblue !important;
+    }
   </style>
 </head>
 
@@ -420,6 +420,28 @@
         </div>
       </div>
     </section>
+
+    <section id="home_video" class="bg-light py-5 d-flex align-items-center bg-fondo-boda">
+      <div class="container">
+        <div class="row">
+          <div class="col-12 text-center">
+            <p class="color-oro display-5">Una pequeña parte de nuestra historia</p>
+          </div>
+        </div>
+        <div class="row justify-content-center">
+          <div class="col-12 col-md-10 col-lg-8">
+            <div class="ratio ratio-16x9 overflow-hidden">
+              <iframe src="https://player.vimeo.com/video/1148753515?badge=0&autopause=0"
+                allow="autoplay; fullscreen; picture-in-picture" referrerpolicy="strict-origin-when-cross-origin"
+                title="MICHEL Y KAREM" allowfullscreen></iframe>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <script src="https://player.vimeo.com/api/player.js"></script>
+
     <section class="img-cambiopagina">
 
     </section>
@@ -531,57 +553,53 @@
         </div>
       </div>
     </section>
-<section id="dress_code" class="bg-azul">
-  <div class="container">
-    <div class="row align-items-center text-center">
+    <section id="dress_code" class="bg-azul">
+      <div class="container">
+        <div class="row align-items-center text-center">
 
-      <!-- Título -->
-      <div class="col-12 mb-4">
-        <h2 class="color-celeste display-4">
-          <strong>Dress Code</strong>
-        </h2>
-      </div>
+          <!-- Título -->
+          <div class="col-12 mb-4">
+            <h2 class="color-celeste display-4">
+              <strong>Dress Code</strong>
+            </h2>
+          </div>
 
-      <!-- Hombres -->
-      <div class="col-md-4 d-flex justify-content-center align-items-center mb-4 mb-md-0" data-aos="fade-left">
-        <div style="max-width: 290px;">
-          <p class="color-celeste display-7">
-            <strong>Hombres:</strong> Formal de matrimonio; Traje, camisa y
-            una sonrisa a la altura del amor que se celebra!
-          </p>
+          <!-- Hombres -->
+          <div class="col-md-4 d-flex justify-content-center align-items-center mb-4 mb-md-0" data-aos="fade-left">
+            <div style="max-width: 290px;">
+              <p class="color-celeste display-7">
+                <strong>Hombres:</strong> Formal de matrimonio; Traje, camisa y
+                una sonrisa a la altura del amor que se celebra!
+              </p>
+            </div>
+          </div>
+
+          <!-- Imagen -->
+          <div class="col-md-4 d-flex flex-column align-items-center mb-4 mb-md-0" data-aos="fade-up">
+            <img src="./assets/img/posando_casual.png" alt="Dress Code" class="section-img img-fluid w-80 mb-3">
+          </div>
+
+          <!-- Mujeres -->
+          <div class="col-md-4 d-flex justify-content-center align-items-center mb-4 mb-md-0" data-aos="fade-right">
+            <div style="max-width: 290px;">
+              <p class="color-celeste display-7">
+                <strong>Mujeres:</strong> Formal. Vestido o conjunto sofisticado.
+                Colores, texturas y diseños que aporten armonía y alegría a la celebración
+                son bienvenidos.
+              </p>
+            </div>
+          </div>
+
+          <!-- Texto color blanco (desktop posición normal / mobile al final) -->
+          <div class="col-12 order-4 order-md-2 mt-3 mt-md-0">
+            <p class="color-celeste text-center">
+              <strong>COLOR BLANCO Y DERIVADOS RESERVADOS PARA LOS NOVIOS.</strong>
+            </p>
+          </div>
+
         </div>
       </div>
-
-      <!-- Imagen -->
-      <div class="col-md-4 d-flex flex-column align-items-center mb-4 mb-md-0" data-aos="fade-up">
-        <img
-          src="./assets/img/posando_casual.png"
-          alt="Dress Code"
-          class="section-img img-fluid w-80 mb-3"
-        >
-      </div>
-
-      <!-- Mujeres -->
-      <div class="col-md-4 d-flex justify-content-center align-items-center mb-4 mb-md-0" data-aos="fade-right">
-        <div style="max-width: 290px;">
-          <p class="color-celeste display-7">
-            <strong>Mujeres:</strong> Formal. Vestido o conjunto sofisticado.
-            Colores, texturas y diseños que aporten armonía y alegría a la celebración
-            son bienvenidos.
-          </p>
-        </div>
-      </div>
-
-      <!-- Texto color blanco (desktop posición normal / mobile al final) -->
-      <div class="col-12 order-4 order-md-2 mt-3 mt-md-0">
-        <p class="color-celeste text-center">
-          <strong>COLOR BLANCO Y DERIVADOS RESERVADOS PARA LOS NOVIOS.</strong>
-        </p>
-      </div>
-
-    </div>
-  </div>
-</section>
+    </section>
 
     <!-- <section id="dress_code" class="bg-azul">
       <div class="container">
@@ -640,7 +658,8 @@
           </div>
           <div class="col-12 col-md-8 flex-column d-flex justify-content-center align-items-center"
             data-aos="fade-right">
-            <p class="color-celeste display-7 text-center">Agradecemos de corazón tu presencia en este día tan especial.</p>
+            <p class="color-celeste display-7 text-center">Agradecemos de corazón tu presencia en este día tan especial.
+            </p>
             <p class="color-celeste display-7 text-center">Si deseas hacernos un obsequio, dejamos nuestros datos para
               hacerlo posible.</p>
             <button id="datos-regalos" class="btn bg-fondo-boda color-azul" data-bs-toggle="modal"
